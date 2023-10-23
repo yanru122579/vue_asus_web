@@ -159,7 +159,7 @@ const formatData = ref({
   ],
 });
 const tab = ref(1);
-const changeData = (id) => {
+const changeData = (id: any) => {
   tab.value = id;
 
   const newData = data.value.filter((e) => id === e.id);
@@ -175,7 +175,7 @@ const changeData = (id) => {
     <div class="head">
       <button
         v-for="item in saleData"
-        :key="item"
+        :key="item.id"
         @click="
           () => {
             changeData(item.id);

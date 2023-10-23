@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted } from "vue";
+import { ref } from "vue";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 
@@ -19,14 +19,14 @@ const i7 =
   "https://www.asus.com/media/Odin/Websites/tw/SiteSetting/20230831031147.jpg?webp";
 const i8 =
   "https://www.asus.com/media/Odin/Websites/tw/SiteSetting/20230509093207.jpg?webp";
-const ii1 = "../../assets/20231016102741.jpg";
-const ii2 = "../../assets/20230830015136.jpg";
-const ii3 = "../../assets/20230830015507.jpg";
-const ii4 = "../../assets/20230807025153.jpg";
-const ii5 = "../../assets/20230903080824.jpg";
-const ii6 = "../../assets/20230831031149.jpg";
-const ii7 = "../../assets/20230831031147.jpg";
-const ii8 = "../../assets/20230509093207.jpg";
+// const ii1 = "../../assets/20231016102741.jpg";
+// const ii2 = "../../assets/20230830015136.jpg";
+// const ii3 = "../../assets/20230830015507.jpg";
+// const ii4 = "../../assets/20230807025153.jpg";
+// const ii5 = "../../assets/20230903080824.jpg";
+// const ii6 = "../../assets/20230831031149.jpg";
+// const ii7 = "../../assets/20230831031147.jpg";
+// const ii8 = "../../assets/20230509093207.jpg";
 const items = ref([
   {
     image: i1,
@@ -43,33 +43,29 @@ const items = ref([
   { image: i7 },
   { image: i8 },
 ]);
-const currentIndex = ref(0);
+// const currentIndex = ref(0);
 
-const slideStyle = computed(
-  () => `transform: translateX(-${currentIndex.value * 100}%)`
-);
-const currentItem = computed(() => items.value[currentIndex.value]);
+// const slideStyle = computed(
+//   () => `transform: translateX(-${currentIndex.value * 100}%)`
+// );
+// const currentItem = computed(() => items.value[currentIndex.value]);
 
-const nextSlide = () => {
-  currentIndex.value = (currentIndex.value + 1) % items.value.length;
-};
+// const nextSlide = () => {
+//   currentIndex.value = (currentIndex.value + 1) % items.value.length;
+// };
 
-const prevSlide = () => {
-  currentIndex.value =
-    (currentIndex.value - 1 + items.value.length) % items.value.length;
-};
-
-onMounted(() => {
-  // You can add any initialization logic here
-});
+// const prevSlide = () => {
+//   currentIndex.value =
+//     (currentIndex.value - 1 + items.value.length) % items.value.length;
+// };
 </script>
 
 <template>
   <div class="container">
     <h2>活動專區</h2>
     <a href="#">查看所有熱門活動列表></a>
-    <Carousel wrapAround="true">
-      <Slide v-for="slide in items" :key="slide">
+    <Carousel wrapAround>
+      <Slide v-for="slide in items" :key="slide.text">
         <div class="carousel__item">
           <img :src="slide.image" alt="" style="width: 50%; height: 50%" />
           <div class="aa">{{ slide.text }}</div>

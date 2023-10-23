@@ -33,12 +33,20 @@ const messageData = ref([
     text: "購物和學習",
     item: [
       {
+        id: 1,
         text: "手機/電競掌機/健康",
-        item: [{ text: "智慧手機" }, { text: "醫療器材軟體" }],
+        item: [
+          { id: 1, text: "智慧手機" },
+          { id: 2, text: "醫療器材軟體" },
+        ],
       },
       {
+        id: 2,
         text: "筆記型電腦",
-        item: [{ text: "家用" }, { text: "商用" }],
+        item: [
+          { id: 1, text: "家用" },
+          { id: 2, text: "商用" },
+        ],
       },
     ],
   },
@@ -47,10 +55,12 @@ const messageData = ref([
     text: "探索更多",
     item: [
       {
+        id: 1,
         text: "Asus 設計中心",
         item: [],
       },
       {
+        id: 2,
         text: "商用站",
         item: [],
       },
@@ -61,10 +71,12 @@ const messageData = ref([
     text: "支援與服務",
     item: [
       {
+        id: 1,
         text: "維修進度查詢",
         item: [],
       },
       {
+        id: 2,
         text: "找尋服務據點",
         item: [],
       },
@@ -75,10 +87,12 @@ const messageData = ref([
     text: "關於我們",
     item: [
       {
+        id: 1,
         text: "關於華碩",
         item: [],
       },
       {
+        id: 2,
         text: "最新消息",
         item: [],
       },
@@ -86,7 +100,7 @@ const messageData = ref([
   },
 ]);
 const showDetail = ref(0);
-const showDetailHandler = (id) => {
+const showDetailHandler = (id: number) => {
   if (showDetail.value == id) {
     showDetail.value = 0;
   } else {
@@ -98,14 +112,14 @@ const showDetailHandler = (id) => {
 
 <template>
   <div class="container">
-    <div class="product_item" v-for="item in productItem" :key="item">
+    <div class="product_item" v-for="item in productItem" :key="item.id">
       <img class="product_item_img" :src="item.url" alt="" />
       <div>
         <h2 class="product_item_h2">{{ item.title }}</h2>
         <p class="product_item_p">{{ item.text }}</p>
       </div>
     </div>
-    <div class="message" v-for="items in messageData" :key="items">
+    <div class="message" v-for="items in messageData" :key="items.id">
       <div class="message_text" @click="() => showDetailHandler(items.id)">
         <p>{{ items.text }}</p>
         <button>
@@ -117,11 +131,11 @@ const showDetailHandler = (id) => {
         </button>
       </div>
       <div v-show="showDetail == items.id">
-        <ul v-for="detail in items.item" :key="detail">
+        <ul v-for="detail in items.item" :key="detail.id">
           <li v-if="detail.item.length == 0">{{ detail.text }}</li>
           <div v-else>
             <p class="message_title">{{ detail.text }}</p>
-            <ul v-for="text in detail.item" :key="text">
+            <ul v-for="text in detail.item" :key="text.text">
               <li>{{ text.text }}</li>
             </ul>
           </div>

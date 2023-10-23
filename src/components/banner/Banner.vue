@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { ref } from "vue";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 // defineProps<{}>();
-import aa from "../../assets/mrnsmtuqt95g4y6c-0_0_desktop_0_1X.jpg";
+// import aa from "../../assets/mrnsmtuqt95g4y6c-0_0_desktop_0_1X.jpg";
 import bb from "../../assets/8gqevxw9hfoogwqx-0_0_desktop_0_1X.jpg";
-import cc from "../../assets/e51hz2knhx9dulvi-0_0_desktop_0_1X.jpg";
-import dd from "../../assets/plyii8g5pxwod3jx-0_0_desktop_0_1X.jpg";
-import ee from "../../assets/h74hxr7oal0jao67-0_0_desktop_0_1X.jpg";
+// import cc from "../../assets/e51hz2knhx9dulvi-0_0_desktop_0_1X.jpg";
+// import dd from "../../assets/plyii8g5pxwod3jx-0_0_desktop_0_1X.jpg";
+// import ee from "../../assets/h74hxr7oal0jao67-0_0_desktop_0_1X.jpg";
 const bannerImgData = ref([
   "https://www.asus.com/WebsitesBanner/TW/banners/mrnsmtuqt95g4y6c/mrnsmtuqt95g4y6c-0_0_mobile_0_2X.jpg?webp",
   bb,
@@ -20,7 +20,8 @@ const bannerImgData = ref([
 
 <template>
   <!-- <img :src="aa" :alt="bannerImgData[0]" /> -->
-  <Carousel autoplay="1500" wrapAround="true">
+  <Carousel wrapAround>
+    <!-- <Carousel autoplay="1500" wrapAround> -->
     <Slide v-for="slide in bannerImgData" :key="slide">
       <div class="carousel__item">
         <img :src="slide" alt="" style="width: 100%; height: 500px" />

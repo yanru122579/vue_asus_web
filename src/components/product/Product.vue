@@ -70,7 +70,7 @@ const productData = ref([
     :style="{ background: `no-repeat url(${item.imgUrl}) 50% 30%` }"
     class="card"
     v-for="item in productData"
-    :key="(item, index)"
+    :key="item.index"
   >
     <img class="card__titleImg" :src="item.titleUrl" alt="" />
     <span>{{ item.text }}</span>

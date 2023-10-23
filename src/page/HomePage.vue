@@ -6,7 +6,6 @@ import Product from "../components/product/Product.vue";
 import Activity from "../components/activity/Activity.vue";
 import Sale from "../components/sale/Sale.vue";
 import Footer from "../components/footer/Footer.vue";
-import { ref } from "vue";
 </script>
 
 <template>

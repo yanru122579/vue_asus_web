@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import SideBar from "./SideBar.vue";
 
 // defineProps<{}>();
 const menu = ref<boolean>(false);
@@ -112,10 +111,10 @@ const sideBarData = ref([
         <div calss="sideBar__menu__body">
           <div
             class="sideBar__menu__body__item"
-            v-for="items in sideBarData"
-            :key="items"
+            v-for="(items, index) in sideBarData"
+            :key="index"
           >
-            <div class="" v-for="item in items" :key="item">
+            <div class="" v-for="(item, index) in items" :key="index">
               <span>{{ item.category }}</span>
               <button class="btn">
                 <font-awesome-icon :icon="['fas', 'plus']" />
