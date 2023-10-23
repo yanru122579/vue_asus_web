@@ -30,7 +30,7 @@ const saleData = ref([
   {
     id: 5,
     img: i5,
-    text: "通訊產品/Iot/伺服器",
+    text: "通訊產品/iot/伺服器",
   },
   {
     id: 6,
